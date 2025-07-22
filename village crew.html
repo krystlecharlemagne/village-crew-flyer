@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>66 The Village Crew - First Outing</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .flyer {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+            max-width: 650px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 2px);
+            background-size: 30px 30px;
+            animation: float 25s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            100% { transform: translateX(-30px) translateY(-30px) rotate(360deg); }
+        }
+        
+        .crew-emoji {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .content {
+            padding: 40px 35px;
+        }
+        
+        .greeting {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .event-highlight {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #f39c12;
+        }
+        
+        .event-highlight::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24, #ff9ff3, #54a0ff);
+            border-radius: 20px;
+            z-index: -1;
+            animation: borderGlow 3s linear infinite;
+        }
+        
+        @keyframes borderGlow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        
+        .event-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+        
+        .event-details {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #c0392b;
+            margin-bottom: 15px;
+        }
+        
+        .location {
+            font-size: 1.1rem;
+            color: #2d3748;
+            font-weight: 500;
+            background: rgba(255,255,255,0.7);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+        
+        .vibe-section {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .vibe-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        
+        .vibe-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .vibe-item {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            color: #4a5568;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .vibe-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .community-message {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            margin: 25px 0;
+        }
+        
+        .community-text {
+            font-size: 1.1rem;
+            color: #2d3748;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        
+        .no-stress {
+            text-align: center;
+            color: #27ae60;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 15px;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .footer-emoji {
+            font-size: 1.5rem;
+            margin: 0 10px;
+        }
+        
+        @media (max-width: 580px) {
+            .flyer {
+                margin: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 30px 25px;
+            }
+            
+            .event-highlight {
+                padding: 25px 20px;
+            }
+            
+            .event-details {
+                font-size: 1.1rem;
+            }
+            
+            .vibe-items {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer">
+        <div class="header">
+            <span class="crew-emoji">🎉</span>
+            <h1 class="title">66 The Village Crew</h1>
+            <p class="subtitle">First Outing Alert!</p>
+        </div>
+        
+        <div class="content">
+            <div class="greeting">
+                <strong>Dear Village Crew,</strong><br><br>
+                Thank you again for joining 66 The Village Crew, our new community of parents and school leaders coming together to connect, build relationships, and simply enjoy each other beyond the formal school setting.
+            </div>
+            
+            <div class="event-highlight">
+                <div class="event-title">🎊 Our First Outing is Official! 🎊</div>
+                <div class="event-details">
+                    Wednesday, July 30th<br>
+                    4:15 PM
+                </div>
+                <div class="location">
+                    📍 <strong>Trini Jam</strong><br>
+                    9501 Flatlands Ave<br>
+                    Brooklyn, NY 11236
+                </div>
+            </div>
+            
+            <div class="vibe-section">
+                <div class="vibe-text">What to Expect:</div>
+                <div class="vibe-items">
+                    <div class="vibe-item">🌟 Good Vibes</div>
+                    <div class="vibe-item">🍽️ Great Food</div>
+                    <div class="vibe-item">👥 Better Company</div>
+                </div>
+            </div>
+            
+            <div class="community-message">
+                <div class="community-text">
+                    This group is all about showing up for each other and having fun while doing it.
+                </div>
+                <div class="no-stress">
+                    ✨ No meetings • No fundraising • Just community ✨
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="footer">
+            Looking forward to seeing you there 🤗 and kicking this off together! 🚀
+        </div>
+    </div>
+</body>
+</html>
